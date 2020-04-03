@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "findadev",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "scripts": {
     "start": "nodemon src/server.js"
@@ -9,6 +9,11 @@
   "dependencies": {
     "express": "^4.17.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KZTN/FindaDev.git"
+  },
+  "author": "KZTN",
   "devDependencies": {
     "nodemon": "^2.0.2"
   }
