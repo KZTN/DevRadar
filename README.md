@@ -10,11 +10,11 @@
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/KZTN/DevRadar">
   
-  <a href="https://github.com/Rocketseat/semana-omnistack-10/commits/master">
+  <a href="https://github.com/KZTN/DevRadar/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/KZTN/DevRadar">
   </a>
 
-  <a href="https://github.com/Rocketseat/semana-omnistack-10/issues">
+  <a href="https://github.com/KZTN/DevRadar/issues">
     <img alt="Repository issues" src="https://img.shields.io/github/issues/KZTN/DevRadar">
   </a>
 
