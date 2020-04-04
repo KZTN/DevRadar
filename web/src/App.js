@@ -1,82 +1,42 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import api from './services/api';
+import DevItem from './components/DevItem';
+import DevForm from './components/DevForm';
 import './App.css';
 import './global.css';
 import './Main.css';
 import './Sidebar.css';
 
 function App() {
+  const [devs, setDevs] = useState([]);
+
+  async function loadDevs() {
+    const response = await api.get('/devs');
+    setDevs(response.data);
+    console.log(response.data);
+  }
+
+  async function handleDev(data) {
+    const response = await api.post('/devs', data);
+    setDevs([...devs, response.data]);
+  }
+
+useEffect(() => {
+  loadDevs();
+}, []);
+
+
   return (
     <div id="app">
       <aside>
         <strong>Cadastrar</strong>
-        <form>
-          <div className="input-block">
-            <label htmlFor="github_username">Usuário do GitHub</label>
-            <input type="text" name="github_username" id="github_username" required/>
-          </div>
-          <div className="input-block">
-            <label htmlFor="techs">Tecnologias </label>
-            <input type="text" name="techs" id="techs" required/>
-          </div>
-          <div className="input-group">
-            <div className="input-block">
-              <label htmlFor="latitude">Latitude</label>
-              <input type="text" name="latitude" id="latitude" required/>
-            </div>
-            <div className="input-block">
-              <label htmlFor="longitude">Longitude</label>
-              <input type="text" name="longitude" id="longitude" required/>
-            </div>
-          </div>
-          <button type="submit">Salvar</button>
-        </form>
+          <DevForm onSubmit={handleDev}/>
       </aside>
       <main>
         <ul>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars0.githubusercontent.com/u/6463299?s=460&u=4461e9ccc7bb327fc8183a09c3da015c832924d6&v=4" alt="KZTN" />
-              <div className="user-info">
-                <strong>KZTN</strong>
-                <span>ReactJS, React Native, CSS</span>
-              </div>
-            </header>
-            <p>Full-Stack and Mobile Developer. I love creating new things. My favourite languages are Python, Kotlin, Javascript, Typescript, C++ and Haskell.</p>
-            <a href="https://github.com/KZTN">Acessar perfil no GitHub</a>
-          </li>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars0.githubusercontent.com/u/6463299?s=460&u=4461e9ccc7bb327fc8183a09c3da015c832924d6&v=4" alt="KZTN" />
-              <div className="user-info">
-                <strong>KZTN</strong>
-                <span>ReactJS, React Native, CSS</span>
-              </div>
-            </header>
-            <p>Full-Stack and Mobile Developer. I love creating new things. My favourite languages are Python, Kotlin, Javascript, Typescript, C++ and Haskell.</p>
-            <a href="https://github.com/KZTN">Acessar perfil no GitHub</a>
-          </li>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars0.githubusercontent.com/u/6463299?s=460&u=4461e9ccc7bb327fc8183a09c3da015c832924d6&v=4" alt="KZTN" />
-              <div className="user-info">
-                <strong>KZTN</strong>
-                <span>ReactJS, React Native, CSS</span>
-              </div>
-            </header>
-            <p>Full-Stack and Mobile Developer. I love creating new things. My favourite languages are Python, Kotlin, Javascript, Typescript, C++ and Haskell.</p>
-            <a href="https://github.com/KZTN">Acessar perfil no GitHub</a>
-          </li>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars0.githubusercontent.com/u/6463299?s=460&u=4461e9ccc7bb327fc8183a09c3da015c832924d6&v=4" alt="KZTN" />
-              <div className="user-info">
-                <strong>KZTN</strong>
-                <span>ReactJS, React Native, CSS</span>
-              </div>
-            </header>
-            <p>Full-Stack and Mobile Developer. I love creating new things. My favourite languages are Python, Kotlin, Javascript, Typescript, C++ and Haskell.</p>
-            <a href="https://github.com/KZTN">Acessar perfil no GitHub</a>
-          </li>
+          {devs.map(dev =>(
+            <DevItem dev={dev} key={dev._id}/>
+          ))}
         </ul>
       </main>
     </div>

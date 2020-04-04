@@ -9,58 +9,7 @@ main ul {
     list-style: none;
 }
 
-main ul li.dev-item {
-    background: #fff;
-    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
-    border-radius: 2px;
-    padding: 20px;
-}
 
-main ul li.dev-item header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-main ul li.dev-item header img {
-    height: 54px;
-    width: 54px;
-    border-radius: 50%;
-}
-
-main ul li.dev-item header .user-info {
-    margin-left: 10px;
-}
-
-main ul li.dev-item header .user-info strong {
-    display: block;
-    font-size: 16px;
-    color: #333;
-}
-
-main ul li.dev-item header .user-info span {
-    font-size: 13px;
-    color: #999;
-    margin-top: 2px;
-}
-
-main ul li.dev-item p {
-    color: #666;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 10px 0;
-}
-
-main ul li.dev-item a {
-    text-decoration: none;
-    color: #8e4dff;
-    font-size: 14px;
-    transition: filter;
-}
-
-main ul li.dev-item a:hover { 
-    filter: brightness(75%);
-}
 
 @media (max-width: 650px) {
     main ul {
