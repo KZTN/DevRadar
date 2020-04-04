@@ -1,5 +1,5 @@
 main {
-    flex: 1
+    flex: 1;
 }
 
 main ul {
@@ -9,55 +9,56 @@ main ul {
     list-style: none;
 }
 
-li.dev-item {
+main ul li.dev-item {
     background: #fff;
     box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
     border-radius: 2px;
     padding: 20px;
 }
 
-li.dev-item header {
+main ul li.dev-item header {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-li.dev-item header img {
+main ul li.dev-item header img {
     height: 54px;
     width: 54px;
     border-radius: 50%;
 }
 
-li.dev-item header .user-info {
+main ul li.dev-item header .user-info {
     margin-left: 10px;
 }
 
-.user-info strong {
+main ul li.dev-item header .user-info strong {
     display: block;
     font-size: 16px;
     color: #333;
 }
 
-.user-info span {
+main ul li.dev-item header .user-info span {
     font-size: 13px;
     color: #999;
     margin-top: 2px;
 }
 
-li.dev-item p {
+main ul li.dev-item p {
     color: #666;
     font-size: 14px;
     line-height: 20px;
     margin: 10px 0;
 }
 
-li.dev-item a {
+main ul li.dev-item a {
     text-decoration: none;
     color: #8e4dff;
     font-size: 14px;
+    transition: filter;
 }
 
-li.dev-item a:hover {
+main ul li.dev-item a:hover { 
     filter: brightness(75%);
 }
 
