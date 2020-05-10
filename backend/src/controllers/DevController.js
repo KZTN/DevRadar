@@ -1,6 +1,7 @@
 import api from '../services/api';
 import Dev from '../models/Dev';
 import parseStringAsArray from '../utils/parseStringAsArray';
+import { findConnections, sendMessage } from '../websocket';
 
 module.exports = {
     async index(req, res) {
@@ -29,6 +30,11 @@ module.exports = {
             techs: techsArray,
             location,
         });
+        const sendSocketMessageTo = findConnections(
+            { latitude, longitude },
+            techsArray
+        );
+        sendMessage(sendSocketMessageTo, 'new-dev', dev);
         return res.json(devResponse);
     },
 };
